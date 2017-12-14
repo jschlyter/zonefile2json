@@ -61,10 +61,18 @@ def main():
                         help='Output mode',
                         choices=['dict', 'list'],
                         default='list')
+    parser.add_argument('zonefile',
+                        metavar='filename',
+                        nargs='?',
+                        help='Input file')
 
     args = parser.parse_args()
 
-    zone = dns.zone.from_file(sys.stdin, relativize=False)
+    if args.zonefile:
+        input = args.zonefile
+    else:
+        input = sys.stdin
+    zone = dns.zone.from_file(input, relativize=False)
     
     if args.mode == 'dict':
         data = by_rdataset(zone)
