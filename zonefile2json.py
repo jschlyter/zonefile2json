@@ -3,7 +3,6 @@
 import os
 import sys
 import argparse
-import pprint
 import json
 import dns.zone
 import dns.rdataclass
@@ -21,7 +20,6 @@ def rdata_to_dict(name, rdata: dns.rdata.Rdata, ttl=None) -> dict:
     }
     if ttl is not None:
         ret['ttl'] = ttl
-    pprint.pprint(ret)
     return ret
 
 
