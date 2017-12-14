@@ -58,7 +58,7 @@ def main():
     parser.add_argument('--mode',
                         dest='mode',
                         metavar='mode',
-                        help='Bobcat Devices configuration file',
+                        help='Output mode',
                         choices=['dict', 'list'],
                         default='list')
 
